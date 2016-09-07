@@ -40,7 +40,13 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nzG-5a-NZK" secondAttribute="bottom" id="fSm-nv-r7o"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="To Do List" id="drP-pj-JCl"/>
+                    <navigationItem key="navigationItem" title="To Do List" id="drP-pj-JCl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ReM-kH-kZQ">
+                            <connections>
+                                <segue destination="d9F-ce-Ave" kind="modal" identifier="AddToDoItemSegue" id="DQJ-wz-dpP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="nzG-5a-NZK" id="tEP-eX-agh"/>
                     </connections>
@@ -48,6 +54,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="504" y="321"/>
+        </scene>
+        <!--Add New To Do Item-->
+        <scene sceneID="G5p-Z2-xCp">
+            <objects>
+                <viewController id="t0f-yM-agh" customClass="AddToDoItemController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5rP-Ax-3b0"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Ab-Xx-abb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ede-Rq-yrD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new to do item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXR-Uo-bkx">
+                                <rect key="frame" x="46" y="271" width="228" height="26"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your to do item here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfQ-gA-REE">
+                                <rect key="frame" x="20" y="317" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vfQ-gA-REE" firstAttribute="top" secondItem="JXR-Uo-bkx" secondAttribute="bottom" constant="20" id="LUa-j0-gof"/>
+                            <constraint firstItem="JXR-Uo-bkx" firstAttribute="centerX" secondItem="Ede-Rq-yrD" secondAttribute="centerX" id="N13-Hj-HOG"/>
+                            <constraint firstItem="vfQ-gA-REE" firstAttribute="leading" secondItem="Ede-Rq-yrD" secondAttribute="leading" constant="20" id="c2g-Or-Q1Q"/>
+                            <constraint firstItem="JXR-Uo-bkx" firstAttribute="centerY" secondItem="Ede-Rq-yrD" secondAttribute="centerY" id="hnR-Pn-dJ5"/>
+                            <constraint firstAttribute="trailing" secondItem="vfQ-gA-REE" secondAttribute="trailing" constant="20" id="k1G-32-6Wd"/>
+                            <constraint firstItem="vfQ-gA-REE" firstAttribute="centerX" secondItem="Ede-Rq-yrD" secondAttribute="centerX" id="oxM-tA-Kjy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New To Do Item" id="3r1-NR-mG0">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PXK-XY-b9Y">
+                            <connections>
+                                <action selector="cancelBarButtonPressed:" destination="t0f-yM-agh" id="3Fr-BQ-6dv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="k9p-gd-zTL">
+                            <connections>
+                                <action selector="saveBarButtonPressed:" destination="t0f-yM-agh" id="I96-B8-Z1c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="toDoItemField" destination="vfQ-gA-REE" id="LCM-Z7-EBN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P8C-bt-T3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1351" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2g1-Vg-M9T">
@@ -66,6 +126,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q63-xU-PeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="118" y="321"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="COp-ni-0Wi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d9F-ce-Ave" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hss-5K-dnp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t0f-yM-agh" kind="relationship" relationship="rootViewController" id="EFz-M3-UiD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qua-Ea-JKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="321"/>
         </scene>
     </scenes>
 </document>

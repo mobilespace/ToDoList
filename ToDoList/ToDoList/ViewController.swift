@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddToDoItemControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let toDoList: [Int:String] = [0: "Go get groceries", 1: "Walk the dog", 2: "Watch a movie", 3: "Do your homework"]
+    var toDoList: [Int:String] = [0: "Go get groceries", 1: "Walk the dog", 2: "Watch a movie", 3: "Do your homework"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = toDoList[indexPath.row]
         
         return cell
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func addToDoItemToList(text:String) {
+        toDoList[toDoList.count] = text
+        
+        tableView.reloadData()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "AddToDoItemSegue") {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let addToDoItemViewController = navigationController.topViewController as! AddToDoItemController
+            
+            addToDoItemViewController.delegate = self
+        }
     }
 
 }

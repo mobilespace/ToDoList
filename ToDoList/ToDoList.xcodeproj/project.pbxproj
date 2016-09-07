@@ -12,6 +12,7 @@
 		EC56BF971D7FE80200B17F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC56BF951D7FE80200B17F46 /* Main.storyboard */; };
 		EC56BF991D7FE80200B17F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC56BF981D7FE80200B17F46 /* Assets.xcassets */; };
 		EC56BF9C1D7FE80200B17F46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC56BF9A1D7FE80200B17F46 /* LaunchScreen.storyboard */; };
+		EC56BFA41D7FF42E00B17F46 /* AddToDoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC56BFA31D7FF42E00B17F46 /* AddToDoItemController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EC56BF981D7FE80200B17F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC56BF9B1D7FE80200B17F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC56BF9D1D7FE80200B17F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC56BFA31D7FF42E00B17F46 /* AddToDoItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToDoItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				EC56BF911D7FE80200B17F46 /* AppDelegate.swift */,
 				EC56BF931D7FE80200B17F46 /* ViewController.swift */,
 				EC56BF951D7FE80200B17F46 /* Main.storyboard */,
+				EC56BFA31D7FF42E00B17F46 /* AddToDoItemController.swift */,
 				EC56BF981D7FE80200B17F46 /* Assets.xcassets */,
 				EC56BF9A1D7FE80200B17F46 /* LaunchScreen.storyboard */,
 				EC56BF9D1D7FE80200B17F46 /* Info.plist */,
@@ -137,6 +140,7 @@
 			files = (
 				EC56BF941D7FE80200B17F46 /* ViewController.swift in Sources */,
 				EC56BF921D7FE80200B17F46 /* AppDelegate.swift in Sources */,
+				EC56BFA41D7FF42E00B17F46 /* AddToDoItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
