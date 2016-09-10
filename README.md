@@ -14,3 +14,6 @@
 
 3.  Marking To Do Items as complete and viewing them in a “history” tab
 
+## App Demo:
+
+![Working app demo](ToDoList.gif)
