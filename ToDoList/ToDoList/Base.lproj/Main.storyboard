@@ -5,6 +5,50 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Completed To Do Items-->
+        <scene sceneID="TQx-5w-6cK">
+            <objects>
+                <viewController id="gmi-fe-d8M" customClass="CompletedToDoItemsController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eJn-j4-TAP"/>
+                        <viewControllerLayoutGuide type="bottom" id="pzj-ij-dgQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="teB-06-xru">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jCE-lq-599">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompletedCell" id="lQY-bx-9jX">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lQY-bx-9jX" id="cNZ-Ke-bS9">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jCE-lq-599" secondAttribute="trailing" id="AcV-hQ-g65"/>
+                            <constraint firstItem="jCE-lq-599" firstAttribute="leading" secondItem="teB-06-xru" secondAttribute="leading" id="Cwd-1C-mym"/>
+                            <constraint firstItem="jCE-lq-599" firstAttribute="top" secondItem="teB-06-xru" secondAttribute="top" id="ocX-WE-QN0"/>
+                            <constraint firstItem="pzj-ij-dgQ" firstAttribute="top" secondItem="jCE-lq-599" secondAttribute="bottom" id="zCy-Ub-ORh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Completed To Do Items" id="qX3-EJ-Mwh"/>
+                    <connections>
+                        <outlet property="tableView" destination="jCE-lq-599" id="353-tK-Bqx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXo-eG-rCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="504" y="-346"/>
+        </scene>
         <!--To Do List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -41,6 +85,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="To Do List" id="drP-pj-JCl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="XMR-Fu-8QD">
+                            <connections>
+                                <segue destination="gmi-fe-d8M" kind="push" identifier="CompletedToDoItemsSegue" id="SaV-yK-Avz"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ReM-kH-kZQ">
                             <connections>
                                 <segue destination="d9F-ce-Ave" kind="modal" identifier="AddToDoItemSegue" id="DQJ-wz-dpP"/>
@@ -70,7 +119,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new to do item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXR-Uo-bkx">
                                 <rect key="frame" x="46" y="271" width="228" height="26"/>
                                 <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your to do item here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfQ-gA-REE">
