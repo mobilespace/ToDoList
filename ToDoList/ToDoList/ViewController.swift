@@ -12,7 +12,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var tableView: UITableView!
     
-    var toDoList: [Int:String] = [0: "Go get groceries", 1: "Walk the dog", 2: "Watch a movie", 3: "Do your homework"]
+    var toDoList: NSMutableArray = ["Go get groceries", "Walk the dog", "Watch a movie", "Do your homework"]
+    
+    var completedToDoList: [Int:String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,19 +23,46 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        resetAccessoryType()
+        tableView.reloadData()
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoList.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ToDoCell", forIndexPath: indexPath)
-        cell.textLabel?.text = toDoList[indexPath.row]
+        cell.textLabel?.text = toDoList[indexPath.row] as! String
         
         return cell
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func resetAccessoryType() {
+        for row in 0..<toDoList.count {
+            if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) {
+                cell.accessoryType = .None
+            }
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            if cell.accessoryType == .None {
+                cell.accessoryType = .Checkmark
+                completedToDoList[completedToDoList.count] = toDoList[indexPath.row] as! String
+                toDoList.removeObjectAtIndex(indexPath.row)
+             } else {
+                cell.accessoryType = .None
+            }
+        }
     }
     
     func addToDoItemToList(text:String) {
@@ -48,6 +77,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let addToDoItemViewController = navigationController.topViewController as! AddToDoItemController
             
             addToDoItemViewController.delegate = self
+        } else if(segue.identifier == "CompletedToDoItemsSegue") {
+            let completedToDoItemsController = segue.destinationViewController as! CompletedToDoItemsController
+            completedToDoItemsController.completedToDoList = completedToDoList as! [Int:String]
         }
     }
 

@@ -5,6 +5,44 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Completed To Do Items-->
+        <scene sceneID="5ma-WL-XxM">
+            <objects>
+                <viewController id="3cw-Xh-BbP" customClass="CompletedToDoItemsController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jju-KN-baJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="NMe-0I-Yuw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yQ1-w7-e6f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U9E-qs-ibG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompletedToDoItemCell" id="Tsy-2n-cEW">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tsy-2n-cEW" id="NCb-b7-BkZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Completed To Do Items" id="Y1G-3Q-QBj"/>
+                    <connections>
+                        <outlet property="tableView" destination="U9E-qs-ibG" id="pXT-Tr-0hz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rbs-we-Ag6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="503" y="-316"/>
+        </scene>
         <!--To Do List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -41,6 +79,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="To Do List" id="drP-pj-JCl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="91M-CV-z2f">
+                            <connections>
+                                <segue destination="3cw-Xh-BbP" kind="push" identifier="CompletedToDoItemsSegue" id="8PD-Ov-Aen"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ReM-kH-kZQ">
                             <connections>
                                 <segue destination="d9F-ce-Ave" kind="modal" identifier="AddToDoItemSegue" id="DQJ-wz-dpP"/>
